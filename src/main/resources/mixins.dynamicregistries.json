@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "silverminer.dynamicregistries.mixins",
+  "refmap": "mixins.dynamicregistries.refmap.json",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "MixinRegistryAccess"
+  ],
+  "client": [],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.8"
+}

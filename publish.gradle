@@ -38,8 +38,8 @@ task publishModrinth(type: TaskModrinthUpload) { // Make sure it runs after buil
     versionType = 'alpha'
     token = System.getenv("MODRINTH") // An environment property called MODRINTH that is your token, set via Gradle CLI, GitHub Actions, Idea Run Configuration, or other
     projectId = 'oz6iM7ld'
-    versionNumber = "$project.version"
-    versionName = "$project.archivesBaseName-$project.version"
+    versionNumber = "${mc_version}-${mod_version}"
+    versionName = "$project.archivesBaseName-${mc_version}-${mod_version}"
     uploadFile = jar
     def file = file('changelog.md')
     def changelogFile = file.text

@@ -13,7 +13,7 @@ apply plugin: 'com.matthewprenger.cursegradle'
 curseforge {
     project {
         apiKey = System.getenv('CURSEFORGE')
-        id = '0'
+        id = '584519'
         def file = file('changelog.md')
         def changelogFile = file.text
         changelog = changelogFile.substring(0, changelogFile.contains('===') ? changelogFile.indexOf("===") : changelogFile.length())

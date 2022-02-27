@@ -58,7 +58,7 @@ public class RegistryUtils {
     }
 
     private static <E extends IForgeRegistryEntry<E>> RegistryAccess.RegistryData<E> createExtensionData(RegistryAccessExtension<E> extension) {
-        return new RegistryAccess.RegistryData<>(extension.getRegistryKey(), extension.getDirectCodec(), extension.getNetworkCodec());
+        return new RegistryAccess.RegistryData<>(extension.getRegistryKey(), extension.getDirectCodec(), null);
     }
 
     public static <E extends IForgeRegistryEntry<E>> MappedRegistry<E> copyExtensionRegistry(ResourceKey<? extends Registry<E>> resourceKey, Lifecycle lifecycle) {

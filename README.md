@@ -1,5 +1,14 @@
 # dynamic registries
 
+## Mod users
+Dynamicregistries is available from curseforge, modrinth and github
+
+![](https://cf.way2muchnoise.eu/584519.svg)
+![Modrinth](https://img.shields.io/modrinth/dt/oz6iM7ld)
+![GitHub all releases](https://img.shields.io/github/downloads/Silverminer007/Dynamicregistries/total)
+
+## Mod developer
+
 Dynamic registries is a library mod that allows the creation of new data-pack based registries. It's **possible** to define elements in code and trough data-packs (even the data-pack in your mod), but not necessary; you can also create elements only in code **or** in data-packs. Elements that were defined in code can also be overwritten from data-packs. Elements must be encoded in JSON.
 
 This library is based on the changes introduced in [this PR](https://github.com/MinecraftForge/MinecraftForge/pull/8263). This PR probably isn't going to be merged before 1.18.2 gets released, but I needed this feature already for 1.18.1, so I wrote this mod. There won't be versions of this library for other Minecraft version for this reason.

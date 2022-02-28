@@ -3,9 +3,9 @@
 ## Mod users
 Dynamicregistries is available from curseforge, modrinth and github
 
-![](https://cf.way2muchnoise.eu/584519.svg)
-![Modrinth](https://img.shields.io/modrinth/dt/oz6iM7ld)
-![GitHub all releases](https://img.shields.io/github/downloads/Silverminer007/Dynamicregistries/total)
+[![](https://cf.way2muchnoise.eu/584519.svg)](https://www.curseforge.com/minecraft/mc-mods/dynamicregistries)
+[![Modrinth](https://img.shields.io/modrinth/dt/oz6iM7ld)](https://modrinth.com/mod/dynamicregistries)
+[![GitHub all releases](https://img.shields.io/github/downloads/Silverminer007/Dynamicregistries/total)](https://github.com/Silverminer007/DynamicRegistries/releases)
 
 ## Mod developer
 

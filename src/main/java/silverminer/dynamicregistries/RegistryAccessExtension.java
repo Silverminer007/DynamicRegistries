@@ -27,7 +27,6 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 import net.minecraftforge.registries.RegistryBuilder;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Defines an additional world-gen component to load as part of the RegistryAccess registries.
@@ -49,38 +48,32 @@ import org.jetbrains.annotations.Nullable;
 public final class RegistryAccessExtension<T extends IForgeRegistryEntry<T>> extends ForgeRegistryEntry<RegistryAccessExtension<?>> {
     private final ResourceKey<Registry<T>> registryKey;
     private final Codec<T> directCodec;
-    @Deprecated
-    @Nullable
-    private final Codec<T> networkCodec;
     private final Lifecycle defaultElementLifecycle;
 
-    public RegistryAccessExtension(ResourceKey<Registry<T>> registryKey, Codec<T> directCodec) {
-        this(registryKey, directCodec, null);
+    @Deprecated(forRemoval = true)// This is only here to keep compatibility with older versions
+    public RegistryAccessExtension(ResourceKey<Registry<T>> registryKey, Codec<T> directCodec, Codec<T> networkCodec, Lifecycle defaultElementLifecycle) {
+        this(registryKey, directCodec, Lifecycle.experimental());
+    }
+
+    @Deprecated(forRemoval = true)// This is only here to keep compatibility with older versions
+    public RegistryAccessExtension(ResourceKey<Registry<T>> registryKey, Codec<T> directCodec, Codec<T> networkCodec) {
+        this(registryKey, directCodec, Lifecycle.experimental());
     }
 
     /**
-     *
      * @param registryKey the registry key that identifies the dynamic registry
      * @param directCodec used to serialize objects from datapacks
-     * @param networkCodec used to serialize and deserialze through network. Use with care. Can cause issues when client is missing codecs
-     * @deprecated We will remove the network codec in a future release
      */
-    @Deprecated
-    public RegistryAccessExtension(ResourceKey<Registry<T>> registryKey, Codec<T> directCodec, Codec<T> networkCodec) {
-        this(registryKey, directCodec, networkCodec, Lifecycle.experimental());
+    public RegistryAccessExtension(ResourceKey<Registry<T>> registryKey, Codec<T> directCodec) {
+        this(registryKey, directCodec, Lifecycle.experimental());
     }
 
-    /**
-     *
-     * @deprecated We will remove the network codec in a future release
-     */
     @Deprecated
-    public RegistryAccessExtension(ResourceKey<Registry<T>> registryKey, Codec<T> directCodec, @Nullable Codec<T> networkCodec, Lifecycle defaultElementLifecycle) {
+    public RegistryAccessExtension(ResourceKey<Registry<T>> registryKey, Codec<T> directCodec, Lifecycle defaultElementLifecycle) {
         validateRegistryKey(registryKey);
         setRegistryName(registryKey.location());
         this.registryKey = registryKey;
         this.directCodec = directCodec;
-        this.networkCodec = networkCodec;
         this.defaultElementLifecycle = defaultElementLifecycle;
     }
 
@@ -90,11 +83,6 @@ public final class RegistryAccessExtension<T extends IForgeRegistryEntry<T>> ext
 
     public Codec<T> getDirectCodec() {
         return directCodec;
-    }
-
-    @Deprecated
-    public @Nullable Codec<T> getNetworkCodec() {
-        return this.networkCodec;
     }
 
     public Lifecycle getDefaultElementLifecycle() {
@@ -132,5 +120,11 @@ public final class RegistryAccessExtension<T extends IForgeRegistryEntry<T>> ext
         if (!location.getPath().startsWith(prefix)) {
             throw new IllegalArgumentException(String.format("Registry path must be prefixed with '%s'", prefix));
         }
+    }
+
+    @Deprecated(forRemoval = true)
+// Only here for compatibility with older versions. This doesn't really return something useful
+    public Codec<T> getNetworkCodec() {
+        return this.directCodec;
     }
 }

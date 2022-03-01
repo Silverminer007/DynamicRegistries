@@ -31,9 +31,9 @@ repositories {
 
 Add the above codeblock to your build.gradle above your dependencies block (the order doesn't matter that strong, but lets assume that you've placed it there to simplify things a bit). If you already had a ```repositories``` block, only append the ```maven``` block to it.
 
-We now define the dependency itself. Add the line below to your dependencies block in your build.gradle. Version `0.1.0` was the latest at time of writing. Replace that with the latest currently available version.
+We now define the dependency itself. Add the line below to your dependencies block in your build.gradle. Version `1.0.0` was the latest at time of writing. Replace that with the latest currently available version.
 ```
-implementation fg.deobf("maven.modrinth:dynamicregistries:0.1.0")
+implementation fg.deobf("maven.modrinth:dynamicregistries:1.0.0")
 
 ```
 
@@ -45,7 +45,7 @@ You can now use dynamic registries in your development setup, but you should mak
 [[dependencies.modid]]
 modId = "dynamicregistries"
 mandatory = true
-versionRange = "[0.0.0,2.0.0)"
+versionRange = "[1.0.0,2.0.0)"
 ordering = "NONE"
 side = "BOTH"
 ```
